@@ -1,6 +1,6 @@
 # Unotes-Project
 The Unotes web application was my DCU final year project. It is an interactive Learning Development app aimed at 
-students over the age of 60. 
+students over the age of 60 and accessible on all platforms. 
 
 The app was designed in such a way that all user groups, especially the over 60's students, would be 
 able to easily access their school or course materials and enjoy a pleasurable user experience while doing so. 
