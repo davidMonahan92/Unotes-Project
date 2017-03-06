@@ -1,0 +1,140 @@
+<!-- 
+******************************************************************************
+This page displays the section notes to the user in a datatable
+******************************************************************************
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Unotes</title>
+	<link href = "css/bootstrap.min.css" rel = "stylesheet" type="text/css"/>
+	<script src= "js/jquery.js"></script>
+	<script src= "js/bootstrap.js"></script>
+	<script src= "js/jquery.cookie.js"></script>
+	<link href = "css/dataTable.css" rel = "stylesheet" type="text/css"/>
+	<script src= "js/jquery.dataTables.min.js"></script>
+	
+	<!-- Logout script & Css-->
+	<script src= "js/logout.js"></script>
+	<link href = "css/logout.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/customCss.css" rel ="stylesheet" type="text/css"/>
+	<link href = "css/unotesCustom.css" rel = "stylesheet" type="text/css"/>
+	
+	<!-- How the Ajax data is received and displayed in the datatable -->
+	<script>
+	$(document).ready(function() {
+	    var table = $('#example').DataTable( {
+	        "ajax": {
+	        	type: "GET",
+			    url: "/getAllNotes",
+			    "dataSrc": ""
+	        },
+	        "columns": [
+				{"data": "week"} ,
+    			{"data": "course"} ,
+    			{"data": "courseSection"},
+                {"defaultContent": "<button>Click!</button>"}
+		            ]
+	    } );
+	    $('#example tbody').on( 'click', 'button', function () {
+	        var data = table.row( $(this).parents('tr') ).data();
+	        $.cookie("vidLink", "video/blah.mp4", { path: '/' });
+	        window.location.href = 'VideoPage.html';
+	        
+	    } );
+	} );
+	</script>
+</head>	
+<body>
+<!--Navbar-->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="ModuleDisplay.html">Unotes</a>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="ModuleDisplay.html">Home</a></li>
+					<li><a href="FAQ1.html">FAQ</a></li>
+					<li><a href="Feedback1.html">Feedback</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench">Settings</span></a>
+						<ul class="dropdown-menu">
+							<li><a href="changePassword.html">Update Password</a></li>
+							<li class="divider"></li>
+							<li><a href="deleteAccount.html">Delete Account</a></li>
+						</ul>
+					</li>
+					<!-- Logout Button -->
+					<li><a  data-toggle="modal" href="#logoutModal"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<!-- Logout modal -->
+					<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header" style="padding: 35px 50px;">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4><span class="glyphicon glyphicon-lock"></span> Signing Out</h4>
+								</div>
+								<div class="modal-body">
+									<p><b><center>Hope you enjoyed your experience</b></p>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-group btn-group-justified" role="group" aria-label="...">
+									  <div class="btn-group" role="group">
+										<button type="button" onclick="logout()" class="btn btn-logout btn-lg raised" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+<br>
+<br>
+<br>
+<br>
+	<!-- Table Body-->
+	<div class="container">
+		<h1><center>Section Notes</center></h1>
+		<br>
+		<table class = "table table-condensed" id="example" class="display" cellspacing="0" width="100%">
+	        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+        </tfoot>
+	    </table>
+	</div>
+	<div class="container">
+		<div class="text-center">
+			<a href="ModuleDisplay.html">
+				<button type="button" class="btn btn-logout btn-lg raised"><span class="glyphicon glyphicon-home"></span> Home</button>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

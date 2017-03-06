@@ -1,0 +1,72 @@
+<!-- Navbar -->
+#customNavbar.navbar-default .navbar-brand {
+    color: rgba(255, 255, 255, 1);
+}
+#customNavbar.navbar-default {
+    font-size: 17px;
+    background-color: rgba(179, 0, 179, 1);
+    border-bottom-width: 0px;
+}
+#customNavbar.navbar-default .navbar-nav>li>a {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#customNavbar.navbar-default .navbar-nav>li>a:hover,
+#customNavbar.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(3, 3, 3, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+#customNavbar.navbar-default .navbar-nav>.active>a,
+#customNavbar.navbar-default .navbar-nav>.active>a:hover,
+#customNavbar.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(145, 126, 126, 1);
+    background-color: rgba(231, 231, 231, 1);
+}
+#customNavbar.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+#customNavbar.navbar-default .navbar-toggle:hover,
+#customNavbar.navbar-default .navbar-toggle:focus {
+    background-color: #ddd;
+}
+#customNavbar.navbar-default .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+#customNavbar.navbar-default .navbar-toggle:hover .icon-bar,
+#customNavbar.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #b300b3;
+}
+
+<!-- Panels -->
+/*!
+* BSClassMaker v3.1.0 (http://bsclassmaker.com)
+* Copyright 2014 BS Class Maker, Inc.
+* Examples: http://bsclassmaker.com/Example
+*/
+
+.panel-cm-unotesCustom{border-color:#b693d4}.panel-cm-unotesCustom > .panel-heading{color:#6a3382;background-color:#cba5dc;border-color:#b693d4}.panel-cm-unotesCustom + .panel-collapse .panel-body{border-top-color:#b693d4}.panel-cm-unotesCustom > .panel-footer{border-bottom-color:#b693d4}.panel-cm-unotesCustom > .panel-footer + .panel-collapse .panel-body{border-bottom-color:#b693d4}.panel-cm-dark-unotesCustom{border-color:#6f3d9b}.panel-cm-dark-unotesCustom > .panel-heading{color:white;background-color:#8e44ad;border-color:#6f3d9b}.panel-cm-dark-unotesCustom + .panel-collapse .panel-body{border-top-color:#6f3d9b}.panel-cm-dark-unotesCustom > .panel-footer{border-bottom-color:#6f3d9b}.panel-cm-dark-unotesCustom > .panel-footer + .panel-collapse .panel-body{border-bottom-color:#6f3d9b}.table > thead > tr > td.cm-unotesCustom,.table > tbody > tr > td.cm-unotesCustom,.table > tfoot > tr > td.cm-unotesCustom,.table > thead > tr > th.cm-unotesCustom,.table > tbody > tr > th.cm-unotesCustom,.table > tfoot > tr > th.cm-unotesCustom,.table > thead > tr.cm-unotesCustom > td,.table > tbody > tr.cm-unotesCustom > td,.table > tfoot > tr.cm-unotesCustom > td,.table > thead > tr.cm-unotesCustom > th,.table > tbody > tr.cm-unotesCustom > th,.table > tfoot > tr.cm-unotesCustom > th{background-color:#cba5dc}.table-hover > tbody > tr > td.cm-unotesCustom:hover,.table-hover > tbody > tr > th.cm-unotesCustom:hover,.table-hover > tbody > tr.cm-unotesCustom:hover > td,.table-hover > tbody > tr.cm-unotesCustom:hover > th{background-color:#c193d4}
+
+
+
+<!-- Buttons -->
+
+<!-- The Previous and Home and Logout Buttons for Unotes -->
+.btn-YellowButton {
+  background-color: hsl(48, 89%, 46%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f1c517", endColorstr="#ddb30c");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f1c517), to(#ddb30c));
+  background-image: -moz-linear-gradient(top, #f1c517, #ddb30c);
+  background-image: -ms-linear-gradient(top, #f1c517, #ddb30c);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f1c517), color-stop(100%, #ddb30c));
+  background-image: -webkit-linear-gradient(top, #f1c517, #ddb30c);
+  background-image: -o-linear-gradient(top, #f1c517, #ddb30c);
+  background-image: linear-gradient(#f1c517, #ddb30c);
+  border-color: #ddb30c #ddb30c hsl(48, 89%, 44.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+<!-- Text -->

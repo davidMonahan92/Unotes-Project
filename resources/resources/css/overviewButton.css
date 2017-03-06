@@ -1,0 +1,83 @@
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 10px 16px;
+}
+
+.btn-lg {
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 6px;
+}
+
+.btn-magenta {
+	color: #fff;
+	background-color: #dda0dd;
+	border-color: #dda0dd;
+}
+
+.btn-magenta:hover,
+.btn-magenta:focus,
+.btn-magenta:active,
+.btn-magenta.active,
+.open .dropdown-toggle.btn-magenta {
+	color: #fff;
+	background-color: #f1c517;
+	border-color: #bb43bb;
+}
+
+/***********************
+RAISED BUTTONS
+************************/
+.btn-magenta.raised {
+	box-shadow: 0 3px 0 0 #832f83;
+}
+.btn-magenta.raised:active, .btn-magenta.raised.active {
+	background: #bb43bb;
+	box-shadow: none;
+	margin-bottom: -3px;
+	margin-top: 3px;
+}
+
+/***********************
+CUSTON BTN VALUES
+************************/
+
+.btn {
+	padding: 14px 24px;
+	border: 0 none;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin:auto;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+
+.btn-magenta {
+	background: #bb43bb;
+	color: #ffffff;
+}
+.btn-magenta:hover, .btn-magenta:focus, .btn-magenta:active, .btn-magenta.active, .open > .dropdown-toggle.btn-magenta {
+	background: #bb43bb;
+}
+.btn-magenta:active, .btn-magenta.active {
+	background: #832f83;
+	box-shadow: none;
+}

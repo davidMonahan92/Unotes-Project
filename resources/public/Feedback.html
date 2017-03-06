@@ -1,0 +1,119 @@
+<!-- 
+******************************************************************************
+This page displays the page for the logged out Feedback page 
+******************************************************************************
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Unotes</title>
+	<link href = "css/bootstrap.min.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/mainCSS.css" rel ="stylesheet" type="text/css"/>
+	<script src= "js/jquery.js"></script>
+	<script src= "js/bootstrap.js"></script>
+	<script src= "js/jquery.cookie.js"></script>
+
+<!-- Logout script & Css-->
+	<script src= "js/logout.js"></script>
+	<link href = "css/logout.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/customCss.css" rel ="stylesheet" type="text/css"/>
+	<link href = "css/submitButton.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/clearButton.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/homeButton.css" rel = "stylesheet" type="text/css"/>
+	
+</head>	
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-default ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="login.html">Unotes</a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="login.html">Home</a></li>
+					<li><a href="FAQ.html">FAQ</a></li>
+					<li><a href="Feedback.html">Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!--Form-->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1><center>Feedback Form</center></h1> <hr/>
+				<div class = "jumbotron">
+					<form class="form-horizontal">
+						<!--Name-->
+						<div class="form-group">
+							<label for="name" class="col-sm-2 control-label">Name</label>
+							<div class="col-sm-6"><!--Input box size changes here-->
+								<input type="text" class="form-control" placeholder="Enter Name..."/>
+							</div>
+						</div>
+						
+						<!--Email-->
+						<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-6"><!--Input box size changes here-->
+								<input type="email" class="form-control" placeholder="Enter Email..."/>
+							</div>
+						</div>	
+					
+						<!--Satisfaction-->
+						<div class="form-group">
+							<label for="satisfaction" class="col-sm-2 control-label">Satisfaction</label>
+							<div class="col-sm-6">
+								<label class="radio-inline">
+									<input type="radio" name="satisfactionRadio" value="option1"/>Happy
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="satisfactionRadio" value="option1"/>Okay
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="satisfactionRadio" value="option1"/>Poor
+								</label>
+							</div>
+						</div>
+						
+						<!-- Feedback Message -->
+						<div class="form-group">
+							<label for="message" class="col-sm-2 control-label">Message</label>
+							<div class="col-sm-6"><!--Input box size changes here-->
+								<textarea class="form-control" rows="3" placeholder="Enter message.."></textarea>
+							</div>
+						</div>
+						
+						<!--Submit/Clear Button -->
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-6">
+								<button type="submit" class="btn btn-submit raised">Submit</button>
+								<button type="reset" class="btn btn-clear raised">Clear</button>
+							</div>
+						</div>
+						
+					</form>
+					<div class="text-center">
+						<a href="login.html">
+							<button type="button" class="btn btn-home btn-lg raised"><span class="glyphicon glyphicon-home"></span> Home</button>
+						</a>
+					</div>
+				</div>				
+			</div>			
+		</div>
+	</div>
+	
+</body>
+</html>

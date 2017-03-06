@@ -1,0 +1,165 @@
+<!-- 
+******************************************************************************
+This page displays the Bootstrap Accordian feature for the logged in FAQ page 
+******************************************************************************
+-->
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Unotes</title>
+	<link href = "css/bootstrap.min.css" rel = "stylesheet" type="text/css"/>
+	<script src= "js/jquery.js"></script>
+	<script src= "js/bootstrap.js"></script>
+	<script src= "js/jquery.cookie.js"></script>
+
+	<!-- Custom css & js-->
+	<script src= "js/logout.js"></script>
+	<link href = "css/logout.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/customCss.css" rel ="stylesheet" type="text/css"/>
+	<link href = "css/unotesCustom.css" rel = "stylesheet" type = "text/css"/>
+	<link href = "css/homeButton.css" rel = "stylesheet" type="text/css"/>
+
+<body>
+	<!--Navbar-->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="ModuleDisplay.html">Unotes</a>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="ModuleDisplay.html">Home</a></li>
+					<li><a href="FAQ1.html">FAQ</a></li>
+					<li><a href="Feedback1.html">Feedback</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench">Settings</span></a>
+						<ul class="dropdown-menu">
+							<li><a href="changePassword.html">Update Password</a></li>
+							<li class="divider"></li>
+							<li><a href="deleteAccount.html">Delete Account</a></li>
+						</ul>
+					</li>
+					<!-- Logout Button -->
+					<li><a  data-toggle="modal" href="#logoutModal"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<!-- Logout modal -->
+					<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header" style="padding: 35px 50px;">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4><span class="glyphicon glyphicon-lock"></span> Signing Out</h4>
+								</div>
+								<div class="modal-body">
+									<p><b><center>Hope you enjoyed your experience</b></p>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-group btn-group-justified" role="group" aria-label="...">
+									  <div class="btn-group" role="group">
+										<button type="button" onclick="logout()" class="btn btn-logout btn-lg raised" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--FAQ Accordian Feature-->
+	<div class="container">
+		<div class="jumbotron">
+			<div class="jumbotron">
+				<h1><center>FAQ</center></h1>
+			</div>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-cm-dark-unotesCustom">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+						<!-- Question Asked -->
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><center>What is Unotes?</center></a>
+						</h3>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<!-- Question Answer -->
+						<div class="panel-body">
+							Unotes is designed as a Web Application, but responsive on all devices. 
+							The idea behind the App was to create a learning app for older DCU students. 
+							The application  allow students full access to their college lecture material 
+							where they are able view the notes in multiple ways to provide easy access, 
+							they can choose how to access the material as a course overview, week by week, 
+							by topic or the full resource material. They can also choose the way they want 
+							to view the material, by text, through audio, by video or as a slideshow. 
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-cm-dark-unotesCustom">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+						<!-- Question Asked -->
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><center>Do You have to be a DCU Student ?</center></a>
+						</h3>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<!-- Question Answer -->
+						<div class="panel-body">
+							Yes. Only DCU students have access to Unotes and the course specific materials within. You must have a valid DCU email to create an account and log in.
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-cm-dark-unotesCustom">					
+					<div class="panel-heading">
+						<h3 class="panel-title">
+						<!-- Question Asked -->
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><center>What features does Unotes have ?</center></a>
+						</h3>
+					</div>
+					<div id="collapse4" class="panel-collapse collapse">
+						<!-- Question Answer -->
+						<div class="panel-body">
+							Users will have access to their course material in the form of a course overview, week by week, 
+							by topic or the full resource material. They can then choose the way they want 
+							to view the material, by text, through audio, by video or as a slideshow.
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-cm-dark-unotesCustom">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+						<!-- Question Asked -->						
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><center>Who is Unotes designed for ?</center></a>
+						</h3>
+					</div>
+					<div id="collapse5" class="panel-collapse collapse">
+						<!-- Question Answer -->
+						<div class="panel-body">
+							Unotes is aimed at the older generation of student (Over the age of 60). As students over the age of 60 might not have the same skill and abilities to use technologies as someone in their twenties, the aim is to design and make this application as simple as possible to navigate and appealing to older students making it very accessible. I also want to make this app as accessible as possible including students with disabilities and other diverse user groups. With simple, fluent features this app will allow anyone of any skill type and range to use it.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="container">
+				<div class="text-center">
+					<a href="ModuleDisplay.html">
+						<button type="button" class="btn btn-home btn-lg raised"><span class="glyphicon glyphicon-home"></span> Home</button>
+					</a>
+				</div>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

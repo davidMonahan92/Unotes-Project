@@ -1,0 +1,256 @@
+<!-- 
+******************************************************************************
+This is the default logged out homepage.
+Users can create an account and log in here through Ajax POST and GET calls.
+There are other checks to make sure the email is valid, to see if the account
+already exist and if the login details are valid. 
+The Login and create account forms are displayed in modals.
+******************************************************************************
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Unotes</title>
+	<link href= "css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	
+	<link href = "css/login.css" rel = "stylesheet" type= "text/css"/>
+	<link href = "css/create.css" rel = "stylesheet" type = "text/css"/>
+	<link href = "css/customCss.css" rel ="stylesheet" type="text/css"/>
+	
+	<style type="text/css">
+	.modal-header, h4, .close {
+		color:white !important;
+		text-align: center;
+		font-size: 30px;
+	}
+	.modal-footer {
+		background-color: #f9f9f9;
+	}
+	</style>
+	
+	<script>
+	//Checks Database to ensure the email isnt already in use
+	function isAvail(){
+		$.post("/isUserNew",
+		{
+			username:$("#newEmail").val(),
+		},
+		function(data)
+		{
+			if(data.username == "")
+			{
+				alert(data.username + " is avaiable");
+				return true;	
+			}else{
+				alert(data.username + "is in use");
+				document.create.newEmail.focus();
+			}
+			return false;
+		},"json");	
+	}
+	function emailcheck()
+	{
+		var email=document.create.newEmail.value
+		if (email.indexOf("@mail.dcu.ie")==-1|| email.length<=12){
+			alert("Please input a valid email address!")
+			document.create.newEmail.focus()
+		}
+		else{
+			alert("checking isAvail");
+			isAvail();
+		}
+	}
+	function enterPassword(){
+		var createPassword=document.create.newPwd.value
+		if(createPassword == ""){
+			alert("please enter a password1");
+			document.create.newPwd.focus()
+		}
+		else{
+			return true;
+		}
+	}
+	function correctEmail(){
+		$.post("/isUserNew",
+		{
+			username:$("#email").val(),
+		},
+		function(data)
+		{
+			if(data.username == "")
+			{
+				alert(data.username + " is not a valid email");
+				document.login.email.focus();
+			}
+		},"json");
+	}
+
+	function createAccount()
+	{
+		$.ajax({
+			type: "POST",
+		    url: "/createAccount",
+		    data:{ 
+		    	username: $("#newEmail").val(),
+		    	password: $("#newPwd").val(),
+		    },
+		    dataType: "json",
+		    success: function (data) {
+		    	data.username;
+		    	data.password;
+        		location.href = "ModuleDisplay.html";
+		    }
+	 	});           
+	}
+	
+	//Login calls
+	function accountLogin()
+	{
+		$.ajax({
+			type: "GET",
+		    url: "/userLogin",
+		    data: { username: $("#email").val(),
+		    		password: $("#pwd").val()},
+		    dataType: "json", 
+		    success: function (data) {
+		    	returned_data = data;
+		    	if(data.username == "" && data.password ==""){
+					alert("No user found");
+				}
+		    	else if(data.username!= "" && data.password==""){
+		    		alert("Enter a password");
+		    	}
+		    	else{
+					$.cookie("userId", data.id, { expires: 1, path: '/' });
+	        		location.href = "ModuleDisplay.html";
+				}
+	        }
+	    });
+	}
+	</script>
+</head>
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-default ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="login.html">Unotes</a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="login.html">Home</a></li>
+					<li><a href="FAQ.html">FAQ</a></li>
+					<li><a href="Feedback.html">Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- Login Body-->
+	<div class="container">
+		<div class="jumbotron text-center vertical-center">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>
+						Welcome to <br><img src="Buttons/logo.png">
+					</h1>
+				</div>
+				<div class="col-md-6">
+					<!-- <a data-toggle="modal" href="#createAccountModal"><img src="Buttons/CreateAccount.jpg" class="img-responsive"></a> -->
+					<button type="button" class="btn btn-create btn-lg btn-block raised" id="myCreateBtn"><b>Create Account</b></button>
+					
+				</div>
+				<div class="col-md-6">
+					<!-- <a data-toggle="modal" href="#loginModal"><img src="Buttons/Login.jpg" class="img-responsive"></a> -->
+					<button type="button" class="btn btn-login btn-lg btn-block raised" id="myLoginBtn"><b>Login</b></button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Create Account Modal -->
+		<div class="modal fade" id="createModal" role="dialog" area-hidden="true" data-backdrop="false">
+			<div class="modal-dialog">
+				<!-- Create Account Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style=" background-color: #b65873; padding: 35px 50px;">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4><span class="glyphicon glyphicon-lock"></span> Create Account</h4>
+					</div>
+					<div class="modal-body"style="padding: 40px 50px;">
+						<form name="create">
+							<div class="form-group">
+								<label for = "newEmail"><span class="glyphicon glyphicon-user"></span> Email</label>
+								<input type="text" size="20" class="form-control" id="newEmail" onblur="emailcheck()" required placeholder="Enter Valid DCU Email here...">
+							</div>
+							<div class="form-group">
+								<label for = "newPwd"><span class="glyphicon glyphicon-user"></span> Password</label>
+								<input type="password" class="form-control" id="newPwd" onblur="enterPassword()"required placeholder="Enter Your New Password here..." />
+							</div>
+							<button type="submit" class="btn btn-create btn-block raised" onclick="createAccount()" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> Create </button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					</div>
+				</div>   
+			</div>
+		</div>
+
+		<!-- Login Modal -->
+		<div class="modal fade" id="loginModal" role="dialog" area-hidden="true" data-backdrop="false">
+			<div class="modal-dialog">
+				<!-- Login Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style=" background-color: #59b66d; padding: 35px 50px;">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+					</div>
+					<div class="modal-body"style="padding: 40px 50px;">
+						<form name="login">
+							<div class="form-group">
+								<label for = "email"><span class="glyphicon glyphicon-user"></span> Email</label>
+								<input type="email" size="20" class="form-control" id="email" onblur="correctEmail()"  required placeholder="Enter Email here...">
+							</div>
+							<div class="form-group">
+								<label for = "pwd"><span class="glyphicon glyphicon-user"></span> Password</label>
+								<input type="password" class="form-control" id="pwd" required placeholder="Enter Password here..." />
+							</div>
+							<button type="submit" class="btn btn-login btn-block raised" onclick="accountLogin()" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> Login </button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					</div>
+				</div>   
+			</div>
+		</div>
+	</div>
+	<script>
+$(document).ready(function(){
+    $("#myLoginBtn").click(function(){
+        $("#loginModal").modal();
+    });
+	
+	$("#myCreateBtn").click(function(){
+        $("#createModal").modal();
+    });
+});
+</script>
+
+</body>
+</html>

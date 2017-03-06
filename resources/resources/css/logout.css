@@ -1,0 +1,104 @@
+/*
+Custom logout modal header styling
+*/
+.modal-header, h4, .close {
+	background-color: #8e44ad;
+	color:white !important;
+	text-align: center;
+	font-size: 30px;
+}
+/*
+Custom logout modal footer styling
+*/
+.modal-footer {
+	background-color: #f9f9f9;
+}
+/*
+Custom logoutButton styling
+*/
+/**************************
+  DEFAULT BOOTSTRAP STYLES
+**************************/
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+  
+.btn-lg {
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
+.btn-logout {
+  color: #fff;
+  background-color: #f1c517;
+  border-color: #f1c517;
+}
+
+.btn-logout:hover,
+.btn-logout:focus,
+.btn-logout:active,
+.btn-logout.active,
+.open .dropdown-toggle.btn-logout {
+  color: #fff;
+  background-color: #f1c517;
+  border-color: #f1c517;
+}
+
+/***********************
+  RAISED BUTTONS
+************************/
+.btn-logout.raised {
+    box-shadow: 0 3px 0 0 #947808;
+}
+.btn-logout.raised:active, .btn-logout.raised.active {
+    background: #f1c517;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
+}
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-logout {
+    background: #f1c517;
+    color: #ffffff;
+}
+.btn-logout:hover, .btn-logout:focus, .btn-logout:active, .btn-logout.active, .open > .dropdown-toggle.btn-logout {
+    background: #f1c517;
+}
+.btn-logout:active, .btn-logout.active {
+    background: #947808;
+    box-shadow: none;
+}

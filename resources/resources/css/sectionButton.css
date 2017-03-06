@@ -1,0 +1,82 @@
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 10px 16px;
+}
+
+.btn-lg {
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 6px;
+}
+
+.btn-create {
+	color: #fff;
+	background-color: #b65873;
+	border-color: #b65873;
+}
+
+.btn-create:hover,
+.btn-create:focus,
+.btn-create:active,
+.btn-create.active,
+.open .dropdown-toggle.btn-create {
+	color: #fff;
+	background-color: #b65873;
+	border-color: #b65873;
+}
+
+/***********************
+RAISED BUTTONS
+************************/
+.btn-create.raised {
+	box-shadow: 0 3px 0 0 #873b51;
+}
+.btn-create.raised:active, .btn-create.raised.active {
+	background: #b65873;
+	box-shadow: none;
+	margin-bottom: -3px;
+	margin-top: 3px;
+}
+
+/***********************
+CUSTON BTN VALUES
+************************/
+
+.btn {
+	padding: 14px 24px;
+	border: 0 none;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+
+.btn-create {
+	background: #b65873;
+	color: #ffffff;
+}
+.btn-create:hover, .btn-create:focus, .btn-create:active, .btn-create.active, .open > .dropdown-toggle.btn-create {
+	background: #b65873;
+}
+.btn-create:active, .btn-create.active {
+	background:#873b51;
+	box-shadow: none;
+}

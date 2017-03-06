@@ -1,0 +1,166 @@
+<!--How the Nomensa player plays local files
+Basically coded from scratch -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Unotes</title>
+	<link href = "css/bootstrap.min.css" rel = "stylesheet" type="text/css"/>
+	<script src= "js/jquery.js"></script>
+	<script src= "js/bootstrap.js"></script>
+	
+
+	<!-- Logout script & Css-->
+	<script src= "js/logout.js"></script>
+	<link href = "css/logout.css" rel = "stylesheet" type="text/css"/>
+	<link href = "css/customCss.css" rel ="stylesheet" type="text/css"/>
+	
+	<!-- Include styles for media player -->
+	<link type="text/css" href="css/player-core.css" rel="stylesheet" >
+	<link type="text/css" href="css/player-theme.css" rel="stylesheet" >
+
+	<!-- Include google's JSAPI and load jQuery from there -->
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load("jquery", "1.6.0");
+		google.load("jqueryui", "1.8.13");
+	</script>
+	<script src= "js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/core/javascript/swfobject/swfobject.js"></script>
+	<!-- Include the accessible media player script -->
+	<script type="text/javascript" src="js/core/javascript/jquery.player.min.js"></script>
+
+	<!-- Code used to receive a video element locally and using the file dimension 
+	displaying the media player on the web page-->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var a = document.getElementById('videoLink'); //or grab it by tagname etc
+		a.setAttribute("href", $.cookie('vidLink'));	
+		<!-- file types it can accept -->
+		var $media_links = $("a[href$='flv'], a[href$='mp4'], a[href$='ogv']");
+		var $audio_links = $("a[href$='mp3']");
+		// Create player
+		$.each($media_links, function(i) {
+			{
+			var $holder = $('<span />');
+			$(this).parent().replaceWith($holder);
+			// Extract the url/path from the links href attribute
+			var link = $(this).attr('href');
+			// Grab the captions if they exist
+			var $captions = $(this).siblings('.captions');
+			// Work out if the video has captions
+			var captionsFile = $($captions).length > 0 ? $($captions).attr('href') : '';
+			// Instantiate the jwplayer
+			// Initialise the player
+			$holder.player({
+				id : 'yt' + i,
+				media : link,
+				captions : captionsFile
+			});
+			}
+			;
+		});
+		$.each($audio_links, function(i) {
+			{
+			var $holder = $('<span />');
+			$(this).parent().replaceWith($holder);
+			// Extract the url/path from the links href attribute
+			var link = $(this).attr('href');
+			// Grab the captions if they exist
+			var $captions = $(this).siblings('.captions');
+			// Work out if the video has captions
+			var captionsFile = $($captions).length > 0 ? $($captions).attr('href') : '';
+			// Instantiate the jwplayer
+			// Initialise the player
+			$holder.player({
+				id : 'yt' + i,
+				media : link,
+				captions : captionsFile
+			});
+			}
+			;
+		});
+	});
+</script>
+
+</head>	
+<body>
+	<!--Navbar-->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="ModuleDisplay.html">Unotes</a>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="ModuleDisplay.html">Home</a></li>
+					<li><a href="FAQ1.html">FAQ</a></li>
+					<li><a href="Feedback1.html">Feedback</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench">Settings</span></a>
+						<ul class="dropdown-menu">
+							<li><a href="changePassword.html">Update Password</a></li>
+							<li class="divider"></li>
+							<li><a href="deleteAccount.html">Delete Account</a></li>
+						</ul>
+					</li>
+					<!-- Logout Button -->
+					<li><a  data-toggle="modal" href="#logoutModal"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<!-- Logout modal -->
+					<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header" style="padding: 35px 50px;">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4><span class="glyphicon glyphicon-lock"></span> Signing Out</h4>
+								</div>
+								<div class="modal-body">
+									<p><b><center>Hope you enjoyed your experience</b></p>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-group btn-group-justified" role="group" aria-label="...">
+									  <div class="btn-group" role="group">
+										<button type="button" onclick="logout()" class="btn btn-logout btn-lg raised" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+	    <div class="jumbotron">
+        	<h2><center>Accessible Video Player</center></h2><hr/>			
+	        <p>
+	        	<!-- plays the video here -->
+	        	<a id='videoLink' href="">Order of content by Emily Coward</a> <a class="captions"
+					href="Captions/captions-order-of-content.xml"
+					style="display: none;">Captions</a>
+	        </p>
+	    </div>
+	    <div class="text-center">
+			<a href="ModuleDisplay.html">
+				<button type="button" class="btn btn-logout btn-lg raised"><span class="glyphicon glyphicon-home"></span> Home</button>
+			</a>
+		</div>
+	</div>
+</body>
+</html>
